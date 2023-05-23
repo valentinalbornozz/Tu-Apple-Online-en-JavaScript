@@ -28,45 +28,71 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 /*Enlace de inicio*/
 const inicioLink = document.querySelector('a[href="#inicio"]');
+const contactLink = document.querySelector('a[href="#contact"]');
+const productosLink = document.querySelector('a[href="#productos"]');
 
 // Agrega un evento de clic al enlace de "Inicio"
 inicioLink.addEventListener("click", function (event) {
   event.preventDefault();
+  smoothScroll("#inicio");
+});
 
-  // Calcula la posición de destino (la parte superior del encabezado)
-  const targetPosition = document.getElementById("inicio").offsetTop;
+// Agrega un evento de clic al enlace de "Contacto"
+contactLink.addEventListener("click", function (event) {
+  event.preventDefault();
+  smoothScroll("#contact");
+});
 
-  // Duración del desplazamiento suave en milisegundos
-  const duration = 500;
+// Agrega un evento de clic al enlace de "Productos"
+productosLink.addEventListener("click", function (event) {
+  event.preventDefault();
+  smoothScroll("#productos");
+});
 
-  // Inicia el desplazamiento suave
-  const start =
+// Función para realizar el desplazamiento suave
+function smoothScroll(target) {
+  const targetElement = document.querySelector(target);
+  const targetPosition = targetElement.offsetTop;
+  const startPosition =
     window.pageYOffset ||
     document.documentElement.scrollTop ||
     document.body.scrollTop ||
     0;
-  const startTime =
-    "now" in window.performance ? performance.now() : new Date().getTime();
+  const distance = targetPosition - startPosition;
+  const duration = 500; // Duración del desplazamiento suave en milisegundos
+  const offset = 80; // Ajusta el valor para controlar la posición final
 
-  function scroll() {
-    const currentTime =
-      "now" in window.performance ? performance.now() : new Date().getTime();
-    const time = Math.min(1, (currentTime - startTime) / duration);
-    const easing = easeInOutCubic(time);
-    window.scroll(0, Math.ceil(easing * (targetPosition - start) + start));
+  let startTime = null;
 
-    if (time < 1) {
-      requestAnimationFrame(scroll);
+  function animation(currentTime) {
+    if (startTime === null) {
+      startTime = currentTime;
+    }
+    const timeElapsed = currentTime - startTime;
+    const easing = easeInOutCubic(timeElapsed / duration);
+    const newPosition = startPosition + distance * easing;
+
+    if (distance > 0 && newPosition >= targetPosition - offset) {
+      window.scrollTo(0, targetPosition - offset);
+      return;
+    } else if (distance < 0 && newPosition <= targetPosition - offset) {
+      window.scrollTo(0, targetPosition - offset);
+      return;
+    }
+
+    window.scrollTo(0, newPosition);
+
+    if (timeElapsed < duration) {
+      requestAnimationFrame(animation);
     }
   }
 
-  // Función de aceleración/desaceleración para suavizar el desplazamiento
   function easeInOutCubic(t) {
     return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
   }
 
-  scroll();
-});
+  requestAnimationFrame(animation);
+}
 
 /*Animación del menú hamburguesa*/
 document.querySelector(".bars__menu").addEventListener("click", () => {
@@ -317,30 +343,30 @@ function updateCartButtonCount() {
 loadCartFromStorage();
 
 // Contacto
-const form = document.getElementById('contact-form');
-const fullname = document.getElementById('fullname');
-const email = document.getElementById('email');
-const phone = document.getElementById('phone');
-const asunto = document.getElementById('asunto');
-const mensaje = document.getElementById('mensaje');
-const errorContainer = document.getElementById('error-container');
+const form = document.getElementById("contact-form");
+const fullname = document.getElementById("fullname");
+const email = document.getElementById("email");
+const phone = document.getElementById("phone");
+const asunto = document.getElementById("asunto");
+const mensaje = document.getElementById("mensaje");
+const errorContainer = document.getElementById("error-container");
 
-fullname.addEventListener('input', validateFullname);
-email.addEventListener('input', validateEmail);
-phone.addEventListener('input', validatePhone);
-asunto.addEventListener('input', validateAsunto);
-mensaje.addEventListener('input', validateMensaje);
+fullname.addEventListener("input", validateFullname);
+email.addEventListener("input", validateEmail);
+phone.addEventListener("input", validatePhone);
+asunto.addEventListener("input", validateAsunto);
+mensaje.addEventListener("input", validateMensaje);
 
-form.addEventListener('submit', submitForm);
+form.addEventListener("submit", submitForm);
 
 function showError(inputElement, errorMessage) {
   const parentElement = inputElement.parentElement;
-  const errorElement = parentElement.querySelector('.error-message');
+  const errorElement = parentElement.querySelector(".error-message");
   if (errorElement) {
     errorElement.innerText = errorMessage;
   } else {
-    const newErrorElement = document.createElement('div');
-    newErrorElement.classList.add('error-message');
+    const newErrorElement = document.createElement("div");
+    newErrorElement.classList.add("error-message");
     newErrorElement.innerText = errorMessage;
     parentElement.appendChild(newErrorElement);
   }
@@ -348,7 +374,7 @@ function showError(inputElement, errorMessage) {
 
 function hideError(inputElement) {
   const parentElement = inputElement.parentElement;
-  const errorElement = parentElement.querySelector('.error-message');
+  const errorElement = parentElement.querySelector(".error-message");
   if (errorElement) {
     parentElement.removeChild(errorElement);
   }
@@ -357,7 +383,7 @@ function hideError(inputElement) {
 function validateFullname() {
   const value = fullname.value.trim();
   if (value.length < 3) {
-    showError(fullname, 'El nombre debe tener al menos 3 letras.');
+    showError(fullname, "El nombre debe tener al menos 3 letras.");
     return false;
   } else {
     hideError(fullname);
@@ -369,7 +395,10 @@ function validateEmail() {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const value = email.value.trim();
   if (!emailRegex.test(value)) {
-    showError(email, 'Por favor, introduce una dirección de correo electrónico válida que contenga un @.');
+    showError(
+      email,
+      "Por favor, introduce una dirección de correo electrónico válida que contenga un @."
+    );
     return false;
   } else {
     hideError(email);
@@ -381,7 +410,7 @@ function validatePhone() {
   const phoneRegex = /^\d{10}$/;
   const value = phone.value.trim();
   if (!phoneRegex.test(value)) {
-    showError(phone, 'El número de teléfono debe tener 10 dígitos.');
+    showError(phone, "El número de teléfono debe tener 10 dígitos.");
     return false;
   } else {
     hideError(phone);
@@ -392,7 +421,7 @@ function validatePhone() {
 function validateAsunto() {
   const value = asunto.value.trim();
   if (value.length === 0) {
-    showError(asunto, 'Por favor, introduce un asunto.');
+    showError(asunto, "Por favor, introduce un asunto.");
     return false;
   } else {
     hideError(asunto);
@@ -403,7 +432,7 @@ function validateAsunto() {
 function validateMensaje() {
   const value = mensaje.value.trim();
   if (value.length === 0) {
-    showError(mensaje, 'Por favor, introduce un mensaje.');
+    showError(mensaje, "Por favor, introduce un mensaje.");
     return false;
   } else {
     hideError(mensaje);
@@ -420,11 +449,18 @@ function submitForm(event) {
   const isAsuntoValid = validateAsunto();
   const isMensajeValid = validateMensaje();
 
-  if (isFullnameValid && isEmailValid && isPhoneValid && isAsuntoValid && isMensajeValid) {
+  if (
+    isFullnameValid &&
+    isEmailValid &&
+    isPhoneValid &&
+    isAsuntoValid &&
+    isMensajeValid
+  ) {
     // Aquí puedes enviar el formulario o realizar las acciones necesarias
-    console.log('Formulario válido. Enviar o procesar los datos.');
+    console.log("Formulario válido. Enviar o procesar los datos.");
     form.submit();
   } else {
-    errorContainer.innerText = 'Por favor, completa todos los campos correctamente.';
+    errorContainer.innerText =
+      "Por favor, completa todos los campos correctamente.";
   }
 }
