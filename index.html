@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tu Apple Online</title>
+
+  <link rel="shortcut icon" href="assets/img/2.png" type="image/x-icon" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/normalize.css" />
+  <link rel="stylesheet" href="assets/css/mediaquerys.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+  <header id="inicio" class="header">
+    <!--Inicio-->
+    <div class="container__header scrolled">
+      <div class="logo">
+        <a href="index.html"><img src="assets/img/sin fondo en blanco.png" alt="logo" /></a>
+      </div>
+
+      <div class="menu">
+        <nav>
+          <ul>
+            <li>
+              <a href="#inicio">Inicio</a>
+            </li>
+            <li>
+              <a href="#productos">Produtos</a>
+            </li>
+            </li>
+            <li>
+              <a href="#contacto">Contacto</a>
+            </li>
+            <li>
+              <a href="index.html">Iniciar sesión</a>
+            </li>
+            <li>
+              <a href="index.html">Registrarse</a>
+            </li>
+            <li>
+              <a target="_blank" href="#"><i class="fa-brands fa-youtube"></i></a>
+            </li>
+            <li>
+              <a target="_blank" href="#"><i class="fa-brands fa-instagram"></i></a>
+            </li>
+            <li>
+              <a target="_blank" href="#"><i class="fa-brands fa-twitter"></i></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="bars__menu">
+        <span class="line1__bars-menu"></span>
+        <span class="line2__bars-menu"></span>
+        <span class="line3__bars-menu"></span>
+      </div>
+
+      <div class="bars_menu">
+        <a href="#" class="cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
+      </div>
+    </div>
+    </div>
+    <!-- Menú lateral del carrito -->
+
+    <div id="cart-menu" class="cart-menu">
+      <div class="cart-header">
+        <h3>Carrito de compras</h3>
+        <button id="cart-close" class="cart-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div id="cart-items" class="cart-items">
+      </div>
+      <div class="cart-total" id="cart-total"></div>
+      <div class="cart-actions">
+        <button id="clear-cart" class="clear-cart">Vaciar carrito</button>
+        <button id="checkout" class="checkout">Realizar compra</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Bienvenido a nuestro sitio</h1>
+        <p>Somos distribuidores de apple oficial de confianza</p>
+        <button class="btn__hero"><span><a href="index.html#productos">Ver productos</a></span></button>
+
+      </div>
+    </section>
+    <section class="about">
+      <div class="container">
+        <h2>Sobre nosotros</h2>
+        <div class="benefits">
+          <div class="benefit">
+            <i class="fa-solid fa-truck-fast"></i>
+            <h3>Envío rápido</h3>
+            <p>Entrega en 24 horas</p>
+          </div>
+          <div class="benefit">
+            <i class="fa-solid fa-credit-card"></i>
+            <h3>Pagos seguros</h3>
+            <p>Transacciones encriptadas</p>
+          </div>
+          <div class="benefit">
+            <i class="fa-solid fa-headset"></i>
+            <h3>Atención al cliente</h3>
+            <p>Soporte 24/7</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="products" id="productos">
+      <div class="container">
+        <h2>Productos destacados</h2>
+        <div class="product-list"></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="content">
+        <h2 class="logo-contact">¡Contáctanos!</h2>
+        <div class="contact-wrapper">
+          <div class="contact-form">
+            <form id="contact-form" action="">
+              <p>
+                <label for="fullname">Nombre Completo</label>
+                <input type="text" name="Nombre Completo" id="fullname" />
+                <span class="error-message" id="fullname-error"></span>
+              </p>
+              <p>
+                <label for="e-mail">Email</label>
+                <input type="email" name="Email" id="email" />
+                <span class="error-message" id="email-error"></span>
+              </p>
+              <p>
+                <label for="phone">Teléfono</label>
+                <input type="tel" name="phone" id="phone" />
+                <span class="error-message" id="phone-error"></span>
+              </p>
+              <p>
+                <label for="asunto">Asunto</label>
+                <input type="text" name="asunto" id="asunto" />
+                <span class="error-message" id="asunto-error"></span>
+              </p>
+              <p class="block">
+                <label for="mensaje">Mensaje</label>
+                <textarea name="mensaje" id="mensaje" rows="3"></textarea>
+                <span class="error-message" id="mensaje-error"></span>
+              </p>
+              <p class="block">
+                <button type="submit">Enviar</button>
+              </p>
+            </form>
+          </div>
+          <div class="contact-info">
+            <h4>Más información</h4>
+            <ul>
+              <li><i class="fa-solid fa-location-dot"></i> Av. Ing. Julio Balloffet 326, San Rafael - Mendoza, Argentina</li>
+              <li><i class="fa-solid fa-phone"></i> 5751 6559 7667 2567  </li>
+              <li>
+                <i class="fa-solid fa-envelope"></i>
+                contact@tuappleonline.com
+              </li>
+            </ul>
+            <p>
+              ¡Estaremos encantados de escucharte!
+            </p>
+            <p>Tuappleonline.com</p>
+            <div class="maps">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4643.62521551062!2d-68.34109958267548!3d-34.6158200887676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9679080501bb0927%3A0x5814ca45f1059bf4!2sHotel%20Balloffet!5e0!3m2!1sen!2sar!4v1684877472858!5m2!1sen!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="mapss"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container__footer">
+        <div class="row__information-footer">
+          <div class="box__footer">
+            <a href="#">
+              <img src="assets/img/sin fondo en blanco.png" alt="">
+            </a>
+          </div>
+          <div class="box__footer">
+            <h2>Enlaces rápidos</h2>
+            <a href="#inicio">Inicio</a>
+            <a href="#productos">Produtos</a>
+            <a href="#contacto">Contacto</a>
+            <a href="index.html">Iniciar sesión</a>
+            <a href="index.html">Registrarse</a>
+          </div>
+          <div class="box__footer">
+            <h2>Contáctenos</h2>
+            <div class="box__contact-footer">
+              <button class="btn__footer"><span><a href="#contacto">Contacto</a></span></button>
+            </div>
+          </div>
+        </div>
+        <div class="row__copyright-footer">
+          <p>Copyright © 2023 Valentin Albornoz - Todos los derechos reservados.</p>
+          <div class="socialMedia">
+            <a target="_blank" href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a target="_blank" href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a target="_blank" href="#"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+
+  <!--Script-->
+  <script src="assets/js/app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
+    integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>
