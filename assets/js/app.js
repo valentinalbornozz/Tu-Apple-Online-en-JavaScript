@@ -27,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-
 /*Enlace desplazamiento*/
 const inicioLink = document.querySelector('a[href="#inicio"]');
 const contactLink = document.querySelector('a[href="#contact"]');
