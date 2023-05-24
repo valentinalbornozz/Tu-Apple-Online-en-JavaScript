@@ -453,7 +453,7 @@ nav ul li a.active {
 
 .cart-menu.open {
   transform: translateX(0%);
-  background-color: #343434;
+  background-color: #1e1e1e;
 }
 
 .cart-header {
@@ -461,7 +461,7 @@ nav ul li a.active {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: #343434;
+  background-color: #1e1e1e;
   color: white;
 }
 
@@ -486,7 +486,7 @@ nav ul li a.active {
   padding: 10px;
   position: sticky;
   bottom: 0;
-  background-color: #343434;
+  background-color: #1e1e1e;
   color: white;
   font-weight: bold;
   z-index: 1;
@@ -497,7 +497,7 @@ nav ul li a.active {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: #343434;
+  background-color: #1e1e1e;
 }
 
 .clear-cart {
