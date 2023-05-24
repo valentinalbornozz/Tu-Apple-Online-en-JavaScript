@@ -686,16 +686,14 @@ nav ul li a.active {
 .row__information-footer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .box__footer {
   display: flex;
   flex-direction: column;
   margin: 20px;
 }
-.box__footer:nth-child(1) {
-  width: 350px;
-}
+
 .box__footer a {
   margin-top: 6px;
   color: white;
