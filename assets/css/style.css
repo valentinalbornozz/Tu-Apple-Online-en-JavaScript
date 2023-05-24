@@ -166,7 +166,7 @@ nav ul li a.active {
 }
 
 .cart-menu.show {
-  right: 0; 
+  right: 0;
 }
 
 .cart-menu-content {
@@ -522,7 +522,6 @@ nav ul li a.active {
 }
 .checkout:hover {
   background-color: #2ba02f;
-
 }
 .product-card.purchased {
   margin-bottom: 20px;
@@ -738,7 +737,7 @@ nav ul li a.active {
   flex-direction: column;
   margin: 20px;
   justify-content: center;
-    align-items: center;
+  align-items: center;
 }
 
 .box__footer a {
