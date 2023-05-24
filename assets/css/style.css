@@ -155,7 +155,15 @@ nav ul li a.active {
 .activeline3__bars-menu {
   transform: rotate(-45deg) translate(-4px, 2px);
 }
-
+.cart-menu {
+  position: fixed;
+  top: 0;
+  right: -300px; 
+  width: 300px;
+  height: 100%;
+  background-color: #1e1e1e;
+  transition: right 0.3s ease;
+}
 .cart-menu.show {
   right: 0;
 }
