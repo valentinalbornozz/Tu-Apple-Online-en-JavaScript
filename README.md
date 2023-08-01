@@ -1,2 +1,2 @@
 # Tuappleonline
-Hecho con HTML, CSS y JS
+Realizado con HTML, CSS y JS
