@@ -1,2 +1,3 @@
-# Tuappleonline
-Realizado con HTML, CSS y JS
+# Tu Apple Online en js
+
+**Sitio Realizado con HTML, CSS y JS**
