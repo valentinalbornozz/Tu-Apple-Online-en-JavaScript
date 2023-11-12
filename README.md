@@ -1,4 +1,4 @@
-# Tu Apple Online - Sitio Web de Productos Apple
+# Tu Apple Online - Sitio Web de Productos Apple en JavaScript
 
 ## Descripción
 "Tu Apple Online" es un sitio web que ofrece una amplia gama de productos Apple, como iPhones, MacBooks, iPads, Apple Watch y más. El sitio web proporciona información sobre los productos, precios y una forma sencilla de comprarlos. Además, ofrece una página de contacto para los usuarios que deseen ponerse en contacto con el equipo de soporte.
